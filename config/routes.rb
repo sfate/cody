@@ -56,4 +56,18 @@ Rails.application.routes.draw do
 
   post "/webhooks/pull_request" => "webhooks#pull_request"
   post "/webhooks/issue_comment" => "webhooks#issue_comment"
+
+  scope module: 'api', as: 'api' do
+
+    scope "/repos/:repo", constraints: { repo: /\w+\/\w+/ } do
+      resources :pulls, constraints: { id: /\d+/ }, only: [:index, :show] do
+        resource :reviewers, only: [:show] do
+          collection do
+            post 'add', to: "reviewers#add_reviewer"
+          end
+        end
+      end
+    end
+
+  end
 end
