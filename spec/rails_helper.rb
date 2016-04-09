@@ -63,6 +63,7 @@ end
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include ApiHelper, type: :request
+  config.include ApiHelper, type: :controller
 end
 
 Shoulda::Matchers.configure do |config|
