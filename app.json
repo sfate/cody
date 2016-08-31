@@ -3,7 +3,7 @@
   "description": "A simple bot to manage code review through Pull Requests",
   "repository": "https://github.com/aergonaut/cody",
   "addons": [
-    "heroku-postgres:hobby-dev",
+    "heroku-postgresql:hobby-dev",
     "heroku-redis:hobby-dev"
   ],
   "scripts": {
